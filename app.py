@@ -181,10 +181,9 @@ def download_file(filename):
 
     return send_file(file_path, as_attachment=True)
 
+# Create folders if they don't exist
+os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
+os.makedirs(app.config['RESULTS_FOLDER'], exist_ok=True)
 
 if __name__ == "__main__":
-
-    os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
-    os.makedirs(app.config['RESULTS_FOLDER'], exist_ok=True)
-
     app.run(host="0.0.0.0", port=5000, debug=False)
